@@ -1,0 +1,49 @@
+
+//create new angular application 
+ng new myapp
+
+//create new angular application with custom prefix
+ng new myapp --prefix nitish
+
+//build angular application
+ng build
+
+//run angular application
+ng serve 
+or
+ng serve -o
+or
+npm start
+//create any javascript application we have to create package.json
+npm init
+//install all node modules
+npm install
+
+//create component
+ng generate component home
+
+//create component without spec file
+ng g c login --skip-tests=true
+
+//create component inside subfolder
+ng g c login/logout
+or 
+ng g c login/logout/comp1
+
+//create component without creating folder
+ng g c signup --flat 
+
+//create component with custom prefix
+ng g c comp2 --prefix nitish
+or
+ng g c comp3 --prefix=custom
+
+// create module 
+ng generate module public
+
+// add component name home inside public/components
+ng generate component public/components/home
+ng generate component auth/components/login
+
+//if a folder contain mutiple module then we can explicitly define the module name
+ng generate component auth/components/login --module=auth
