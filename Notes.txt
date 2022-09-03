@@ -47,3 +47,8 @@ ng generate component auth/components/login
 
 //if a folder contain mutiple module then we can explicitly define the module name
 ng generate component auth/components/login --module=auth
+
+
+//create a module with a routing module and also add reference the user module to its parent module
+ng g m user --routing --module=app
+
