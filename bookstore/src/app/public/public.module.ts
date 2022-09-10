@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { PublicRoutingModule } from './public-routing.module';
+import { PublicComponent } from './public.component';
 
 
 
@@ -10,10 +12,12 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
   declarations: [
     HomeComponent,
     AllBooksComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    PublicComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PublicRoutingModule
   ]
 })
 export class PublicModule { }
