@@ -16,5 +16,5 @@ export class DeleteBookComponent implements OnInit {
       this.userid = param.userid;
     })
   }
-
+  
 }
