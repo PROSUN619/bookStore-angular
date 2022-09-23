@@ -4,13 +4,16 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { AppComponent } from './app.component';
+import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'how-it-works', component: HowItWorksComponent },
-  // { path: '', component: AppComponent, pathMatch: 'full' },
+  {path: 'auth', component : AuthComponent, 
+    loadChildren : () => import('./auth/auth.module').then(x => x.AuthModule)
+   },
    {path:'', redirectTo:'', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
+   { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ import { PublicModule } from './public/public.module';
   ],
   imports: [
     BrowserModule,
-    AuthModule,
+    // AuthModule,
     UserModule,
     PublicModule,    
     AppRoutingModule // always use routing module at the bottom side 
