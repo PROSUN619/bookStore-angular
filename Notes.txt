@@ -52,3 +52,5 @@ ng generate component auth/components/login --module=auth
 //create a module with a routing module and also add reference the user module to its parent module
 ng g m user --routing --module=app
 
+//create a service
+ng g s book
