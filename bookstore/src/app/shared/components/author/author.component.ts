@@ -13,12 +13,20 @@ export class AuthorComponent implements OnInit {
   }
 
   @Input()
-  data : any 
+  data: any
 
   @Input()
-  counter: number
+  public get counter(): number {
+    return this._counter;
+  }  
+  
+  public set counter(v : number) {
+    this._counter = ++v;
+  }
+  
+  private _counter: number
 
   @Input()
-  visible : boolean
+  visible: boolean
 
 }

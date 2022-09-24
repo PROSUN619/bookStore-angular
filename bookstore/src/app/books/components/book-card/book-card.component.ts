@@ -13,7 +13,17 @@ export class BookCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input('allbooklist') // <-- this is alias name and it is optional
-  bookList : BookModel[];
+  @Input('allbooklist') // <-- this is alias name and it is optional  
+  public set value(v : BookModel[]) {
+    v.map( x => x.title = 'Title : ' + x.title)    
+    //debugger
+    this._bookList = v;
+  }
+
+  public get bookList() : BookModel[] {
+    return this._bookList;
+  }    
+      
+  _bookList : BookModel[];
 
 }
