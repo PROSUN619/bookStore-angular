@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { CounterService } from '../books/services/counter.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CounterService } from '../books/services/counter.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public _counterService : CounterService) { }
+  constructor(public _counterService : CounterService, @Inject('app-title') public title : any) { }
 
   ngOnInit(): void {
 

@@ -28,7 +28,9 @@ import { ExternalService } from './books/services/external.service';
   ],
   exports:[
   ],
-  providers: [{provide: Counter2Service, useExisting: CounterService},CounterService],
+  providers: [{provide: Counter2Service, useExisting: CounterService},CounterService,
+  {provide:'app-title', useValue: {title : 'app Title', description:'app Description'}}
+  ],
   //either we create Counter2Service or CounterService instance. But instance will create for  CounterService in useExisting
   
   bootstrap: [AppComponent]
