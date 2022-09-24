@@ -11,7 +11,8 @@ export class BookService {
 
   constructor() { }
 
-  getAllBooks(): BookModel[] {
+  // getAllBooks(): BookModel[] {
+  getAllBooks() {
     return [
       {
         id: 1,

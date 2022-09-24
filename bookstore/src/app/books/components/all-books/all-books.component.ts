@@ -11,23 +11,35 @@ import { CounterService } from '../../services/counter.service';
 })
 export class AllBooksComponent implements OnInit {
 
-  books : BookModel[] = []; 
+  books: BookModel[] = [];
 
-  constructor(private bookService : BookService, public _counterService : CounterService) { 
+  constructor(private bookService: BookService, public _counterService: CounterService) {
     //const bookService = new BookService(); // we will not create the instance every time
   }
 
   ngOnInit(): void {
-    this.books = this.bookService.getAllBooks();
-    console.log(this.books)
+    //this.books = this.bookService.getAllBooks();
+    const newbooks = this.bookService.getAllBooks();
+    //debugger;
+    newbooks.forEach((v, i, a) => {
+      let obj = new BookModel();
+      obj.id = v.id
+      obj.title = v.title
+      obj.price = v.price
+      obj.author = v.author
+      obj.totalPages = v.totalPages
+
+      this.books.push(obj);
+    })
+    //console.log(this.books)
   }
 
-  public increment() : void{
-    this._counterService.incCounter();     
+  public increment(): void {
+    this._counterService.incCounter();
   }
 
-  public decrement() : void{
-    this._counterService.decCounter(); 
+  public decrement(): void {
+    this._counterService.decCounter();
   }
 
 }
