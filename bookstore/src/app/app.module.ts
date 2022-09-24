@@ -28,10 +28,9 @@ import { ExternalService } from './books/services/external.service';
   ],
   exports:[
   ],
-  providers: [{provide: CounterService, useClass: Counter2Service},ExternalService],
-  //we are using CounterService but at instance will create for counter 2 service
-  //that means logic is written in Counter2Service will be working
-  //ExternalService service is a separate service which are injected into Counter2Service
+  providers: [{provide: Counter2Service, useExisting: CounterService},CounterService],
+  //either we create Counter2Service or CounterService instance. But instance will create for  CounterService in useExisting
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
