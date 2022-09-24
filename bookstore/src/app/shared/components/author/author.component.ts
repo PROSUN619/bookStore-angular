@@ -12,21 +12,28 @@ export class AuthorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input()
-  data: any
-
-  @Input()
-  public get counter(): number {
-    return this._counter;
-  }  
   
-  public set counter(v : number) {
-    this._counter = ++v;
+  public setdata(v : any) {
+    this.data = v;
   }
   
-  private _counter: number
 
-  @Input()
-  visible: boolean
+  public data : any
+  // @Input()
+  // data: any
+
+  // @Input()
+  // public get counter(): number {
+  //   return this._counter;
+  // }  
+
+  // public set counter(v : number) {
+  //   this._counter = ++v;
+  // }
+  
+  // private _counter: number
+
+  // @Input()
+  // visible: boolean
 
 }
