@@ -66,4 +66,29 @@ export class BookService {
       }
     ]
   }
+
+  getAllRecentBooks() {
+    return [
+      {
+        id: 1,
+        title: 'c#',
+        totalPages: 380,
+        author: 'Richard',
+        price: {
+          currency: 'INR',
+          value: 280
+        }
+      },
+      {
+        id: 2,
+        title: 'JAVA',
+        totalPages: 385,
+        author: 'James',
+        price: {
+          currency: 'INR',
+          value: 290
+        }
+      }      
+    ]
+  }
 }

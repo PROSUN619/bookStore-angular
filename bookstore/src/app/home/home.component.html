@@ -3,3 +3,6 @@
 <button (click)="increment()">+</button>
 <button (click)="decrement()">-</button>
 <h2>Service useValue :- {{title.title}}</h2>
+
+<hr/>
+<app-author [data] = "123" [counter]="_counterService.counter" [visible]="_counterService.counter > 4"></app-author>
