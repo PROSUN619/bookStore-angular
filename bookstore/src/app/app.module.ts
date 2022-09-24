@@ -22,17 +22,25 @@ import { ExternalService } from './books/services/external.service';
   imports: [
     BrowserModule,
     UserModule,
-    SharedModule,      
+    SharedModule,
     BrowserAnimationsModule, // always use routing module at the bottom side 
     AppRoutingModule
   ],
-  exports:[
+  exports: [
   ],
-  providers: [{provide: Counter2Service, useExisting: CounterService},CounterService,
-  {provide:'app-title', useValue: {title : 'app Title', description:'app Description'}}
+  providers: [
+    // { provide: Counter2Service, useExisting: CounterService }, CounterService,
+    {
+      provide: CounterService, useFactory: 
+      (exService : ExternalService) => (exService.status) ? new Counter2Service() : new CounterService(),
+      deps:[ExternalService]
+    },
+    ExternalService,
+    //useFactory returns a function and we can put a logic before instantiation  
+    { provide: 'app-title', useValue: { title: 'app Title', description: 'app Description' } }
   ],
-  //either we create Counter2Service or CounterService instance. But instance will create for  CounterService in useExisting
   
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
