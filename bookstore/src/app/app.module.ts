@@ -6,11 +6,11 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
+import { CounterService } from './books/services/counter.service';
+import { Counter2Service } from './books/services/counter2.service';
+import { ExternalService } from './books/services/external.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,10 @@ import { HomeComponent } from './home/home.component';
   ],
   exports:[
   ],
-  providers: [],
+  providers: [{provide: CounterService, useClass: Counter2Service},ExternalService],
+  //we are using CounterService but at instance will create for counter 2 service
+  //that means logic is written in Counter2Service will be working
+  //ExternalService service is a separate service which are injected into Counter2Service
   bootstrap: [AppComponent]
 })
 export class AppModule { }
