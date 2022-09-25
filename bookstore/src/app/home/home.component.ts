@@ -43,4 +43,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this._counterService.decCounter(); 
   }
 
+  public childData($event : any) : void {
+    console.log($event);
+  }
+
 }

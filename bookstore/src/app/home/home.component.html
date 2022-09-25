@@ -9,4 +9,4 @@
 <hr/>
 <!-- <app-author [data] = "123" [counter]="_counterService.counter" [visible]="_counterService.counter > 4"></app-author> -->
 <button (click)="author.setdata(2)">Click Here to send data to child component</button>
-<app-author #author></app-author>
+<app-author #author (mydata)="childData($event)" ></app-author>
