@@ -1,13 +1,4 @@
+<p>Home Works</p>
 
-<h2 #home>Home Works</h2>
-<h3>Counter Service - {{_counterService.counter}}</h3>
-<h3>shared service from child -- {{_externalService.sharedData}}</h3>
-
-<button (click)="increment()">+</button>
-<button mat-raised-button #decbutton (click)="decrement()">-</button>
-<h2>Service useValue :- {{title.title}}</h2>
-
-<hr/>
-<!-- <app-author [data] = "123" [counter]="_counterService.counter" [visible]="_counterService.counter > 4"></app-author> -->
-<button (click)="author.setdata(2)">Click Here to send data to child component</button>
-<app-author #author (mydata)="childData($event)" ></app-author>
+<button (click)="changeChildValue()">Change Child Value</button>
+<app-author [data]="'asd'" [dynamicdata]="passData"></app-author>
