@@ -63,7 +63,14 @@ but in lazy loading serice type any will create separate instance
 
 ------------------------------------------------------------------------------------------
 life cycle of angular application
-* ngOnChange --> when we pass data from parent to chaild component using @input. 
-  And when there is a change in the data ngOnChange get fired
 
-  
+1* constructor --> used to inject any services and assigning value to properties 
+2* ngOnChange --> when we pass data from parent to chaild component using @input. 
+  And when there is a change in the data ngOnChange get fired
+3* ngOnInit --> It's get called when after ngOnChange and before the displayed on the view
+
+
+* ngDoCheck --> ngDoCheck is used to detect whether any object property has changed instead of entire object reference 
+  example = {id: 123, name : 'Prasun'}
+  example.id = 124 // onchange cant detect but docheck will detect                 
+

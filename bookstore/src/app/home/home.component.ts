@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorModel } from '../shared/models/author.model';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public obj: AuthorModel = { id: '123', name: 'Prasun' };
 
-constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    //console.log('Home Component constructor');
 
   }
 
-  public passData : string
+  ngOnInit(): void {
+    //console.log('Home Component ngOnInit');
+  }
 
-  changeChildValue () : void {
+  public passData: string
+
+  changeChildValue(): void {
     this.passData = 'data passing from home'
+    this.obj.name = 'Subhayan';
   }
 
 }
