@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ExternalService } from 'src/app/books/services/external.service';
 
 @Component({
   selector: 'app-author',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class AuthorComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _externalService : ExternalService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,11 @@ export class AuthorComponent implements OnInit {
     this.mydata.emit("this is author child data ");
   }
   
+  sharedService() : void{
+    this._externalService.sharedData = 'this is shared data from author component';
+  }
+
+
   // @Input()
   // data: any
 

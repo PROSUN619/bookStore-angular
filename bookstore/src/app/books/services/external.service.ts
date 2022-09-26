@@ -1,8 +1,14 @@
 import { Injectable } from "@angular/core";
 
-@Injectable()
+@Injectable(
+    {
+        providedIn: 'root'
+    }
+)
 export class ExternalService {
     constructor() { }
 
-    public status : boolean = false;
+    public status: boolean = false;
+
+    public sharedData : string = '';
 }
