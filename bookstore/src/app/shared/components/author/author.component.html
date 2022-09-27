@@ -1,9 +1,14 @@
-<p>author works!</p>
+<div class="container">
+    <p>author works!</p>
+    <p>Data from home Component - {{data}}</p>
 
-<p>Data from home Component - {{data}}</p>
+    <p>
+        Author : <br />
+        Id : {{author.id}} <br />
+        Name : {{author.name}}
+    </p>
 
-<p>
-    Author : <br/>
-    Id : {{author.id}} <br/>
-    Name : {{author.name}}
-</p>
+    <ng-content></ng-content>
+    <!-- whatever the data is passing from parent component inside <></> tag will be replaced here -->
+    
+</div>z

@@ -9,6 +9,8 @@ import { AuthorModel } from '../shared/models/author.model';
 export class HomeComponent implements OnInit {
 
   public obj: AuthorModel = { id: '123', name: 'Prasun' };
+  public address: string = 'India'
+  private count: number = 0;
 
   constructor() {
     //console.log('Home Component constructor');
@@ -26,4 +28,8 @@ export class HomeComponent implements OnInit {
     this.obj.name = 'Subhayan';
   }
 
+  counter(): void {
+    this.count++;
+    this.address += this.count;
+  }
 }

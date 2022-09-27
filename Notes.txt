@@ -72,5 +72,7 @@ life cycle of angular application
 
 * ngDoCheck --> ngDoCheck is used to detect whether any object property has changed instead of entire object reference 
   example = {id: 123, name : 'Prasun'}
-  example.id = 124 // onchange cant detect but docheck will detect                 
+  example.id = 124 // onchange cant detect but docheck will detect    
+
+*ngAfterContentInit & ngAfterContentChecked -- to pass the data to child and display and track the changes                
 

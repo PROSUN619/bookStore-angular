@@ -6,6 +6,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthorComponent } from './components/author/author.component';
+import { AuthorAddressComponent } from './components/author-address/author-address.component';
 
 
 
@@ -14,13 +15,20 @@ import { AuthorComponent } from './components/author/author.component';
     NotFoundComponent,
     ToolbarComponent,
     FooterComponent,
-    AuthorComponent
+    AuthorComponent,
+    AuthorAddressComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule
   ],
-  exports: [ToolbarComponent, FooterComponent, MaterialModule, AuthorComponent]
+  exports: [
+    ToolbarComponent,
+    FooterComponent,
+    MaterialModule,
+    AuthorComponent,
+    AuthorAddressComponent
+  ]
 })
 export class SharedModule { }
