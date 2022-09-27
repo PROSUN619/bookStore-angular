@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AuthorComponent } from '../shared/components/author/author.component';
 import { AuthorModel } from '../shared/models/author.model';
 
 @Component({
@@ -6,22 +7,35 @@ import { AuthorModel } from '../shared/models/author.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   public obj: AuthorModel = { id: '123', name: 'Prasun' };
   public address: string = 'India'
   private count: number = 0;
+  public passData: string
+
+  @ViewChild('btnChange') btnChange : ElementRef 
+  @ViewChild(AuthorComponent) authComp : AuthorComponent
 
   constructor() {
     //console.log('Home Component constructor');
-
+    
   }
 
+    
   ngOnInit(): void {
-    //console.log('Home Component ngOnInit');
+    console.log('btnChange',this.btnChange);    
   }
 
-  public passData: string
+  ngAfterViewInit(): void {
+    console.log('btnChange',this.btnChange);    
+    this.btnChange.nativeElement.innerHTML = 'button name changed from ngAfterViewInit';
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('Author Component Value changed ' + this.authComp.count);    
+  }
+
 
   changeChildValue(): void {
     this.passData = 'data passing from home'

@@ -67,7 +67,9 @@ life cycle of angular application
 1* constructor --> used to inject any services and assigning value to properties 
 2* ngOnChange --> when we pass data from parent to chaild component using @input. 
   And when there is a change in the data ngOnChange get fired
-3* ngOnInit --> It's get called when after ngOnChange and before the displayed on the view
+3* ngOnInit --> It's get called when after ngOnChange and before the displayed on the view or before view initialization
+4.*ngAfterViewInit --> its get called after view initialization. we can manipulate html in this event.
+5.*ngAfterViewChecked --> any change to child component can be tracked over here
 
 
 * ngDoCheck --> ngDoCheck is used to detect whether any object property has changed instead of entire object reference 
