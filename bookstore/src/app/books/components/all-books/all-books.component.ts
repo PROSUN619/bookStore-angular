@@ -28,7 +28,8 @@ export class AllBooksComponent implements OnInit {
       obj.price = v.price
       obj.author = v.author
       obj.totalPages = v.totalPages
-
+      obj.isPublished = v.isPublished
+      obj.publishedDate = v.publishedDate  
       this.books.push(obj);
     })
     //console.log(this.books)

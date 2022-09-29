@@ -1,0 +1,49 @@
+<p>Add New Books</p>
+
+<form #myform="ngForm" (ngSubmit)="savedata(myform.value)" class="form-class">
+    
+    <mat-form-field appearance="legacy">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" name="title" ngModel>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+        <mat-label>Author</mat-label>
+        <input matInput placeholder="Author" name="author" ngModel>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+        <mat-label>Pages</mat-label>
+        <input matInput placeholder="Pages" name="pages" type="number" ngModel>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+        <mat-label>Price</mat-label>
+        <!-- <input matInput placeholder="Price" name="price" type="number" ngModel> -->
+        <mat-select name="price" type="number" ngModel>
+            <mat-option value="100">100</mat-option>
+            <mat-option value="200">200</mat-option>
+            <mat-option value="300">300</mat-option>
+            <mat-option value="400">400</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" name="publishDate" ngModel>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    <mat-slide-toggle name="isPublished" ngModel>Is Published?</mat-slide-toggle>
+    <br/>
+    <!-- <input type="text" name="title" placeholder="Title" ngModel> <br /><br />
+    <input type="text" name="author" placeholder="Author" ngModel> <br /><br />
+    <input type="text" name="pages" placeholder="Pages" ngModel> <br /><br />
+    <input type="text" name="price" placeholder="Price" ngModel> <br /><br /> -->
+    <button type="submit" mat-raised-button color="primary" style="width: 100px;">Save</button>
+</form>
+
+
+<h2>{{myform.value | json}}</h2>

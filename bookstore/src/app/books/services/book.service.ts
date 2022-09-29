@@ -11,60 +11,77 @@ export class BookService {
 
   constructor() { }
 
+  private books: any[] = [
+    {
+      id: 1,
+      title: 'c#',
+      totalPages: 380,
+      author: 'Richard',
+      price: {
+        currency: 'INR',
+        value: 280
+      },
+      isPublished : true,
+      publishedDate : null
+    },
+    {
+      id: 2,
+      title: 'JAVA',
+      totalPages: 385,
+      author: 'James',
+      price: {
+        currency: 'INR',
+        value: 290
+      },
+      isPublished : true,
+      publishedDate : null
+    },
+    {
+      id: 3,
+      title: 'PHP',
+      totalPages: 350,
+      author: 'Harry',
+      price: {
+        currency: 'INR',
+        value: 250
+      },
+      isPublished : true,
+      publishedDate : null
+    },
+    {
+      id: 4,
+      title: 'Python',
+      totalPages: 400,
+      author: 'Nitish',
+      price: {
+        currency: 'INR',
+        value: 380
+      },
+      isPublished : true,
+      publishedDate : null
+    },
+    {
+      id: 5,
+      title: 'Node',
+      totalPages: 382,
+      author: 'Bill',
+      price: {
+        currency: 'INR',
+        value: 312
+      },
+      isPublished : true,
+      publishedDate : null
+    }
+
+  ];
+
   // getAllBooks(): BookModel[] {
   getAllBooks() {
-    return [
-      {
-        id: 1,
-        title: 'c#',
-        totalPages: 380,
-        author: 'Richard',
-        price: {
-          currency: 'INR',
-          value: 280
-        }
-      },
-      {
-        id: 2,
-        title: 'JAVA',
-        totalPages: 385,
-        author: 'James',
-        price: {
-          currency: 'INR',
-          value: 290
-        }
-      },
-      {
-        id: 3,
-        title: 'PHP',
-        totalPages: 350,
-        author: 'Harry',
-        price: {
-          currency: 'INR',
-          value: 250
-        }
-      },
-      {
-        id: 4,
-        title: 'Python',
-        totalPages: 400,
-        author: 'Nitish',
-        price: {
-          currency: 'INR',
-          value: 380
-        }
-      },
-      {
-        id: 5,
-        title: 'Node',
-        totalPages: 382,
-        author: 'Bill',
-        price: {
-          currency: 'INR',
-          value: 312
-        }
-      }
-    ]
+    return this.books;
+  }
+
+  addNewBook(book : BookModel): void {
+      this.books.push(book);
   }
 
   getAllRecentBooks() {
@@ -77,7 +94,9 @@ export class BookService {
         price: {
           currency: 'INR',
           value: 280
-        }
+        },
+        isPublished : true,
+        publishedDate : null
       },
       {
         id: 2,
@@ -87,8 +106,10 @@ export class BookService {
         price: {
           currency: 'INR',
           value: 290
-        }
-      }      
+        },
+        isPublished : true,
+        publishedDate : null
+      }
     ]
   }
 }

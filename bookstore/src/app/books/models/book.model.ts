@@ -15,7 +15,8 @@ export class BookModel {
     private _totalPages: number;
     private _author: string;
     private _price: PriceModel;
-
+    private _isPublished : boolean;
+    private _publishedDate : Date;
 
     public get id(): number {
         return this._id;
@@ -57,6 +58,22 @@ export class BookModel {
 
     public set price(v : PriceModel) {
         this._price = v;
+    }
+
+    public get isPublished(): boolean {
+        return this._isPublished;
+    }
+
+    public set isPublished(v : boolean) {
+        this._isPublished = v;
+    }
+
+    public get publishedDate(): Date {
+        return this._publishedDate;
+    }
+
+    public set publishedDate(v : Date) {
+        this._publishedDate = v;
     }
 
 }

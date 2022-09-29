@@ -13,7 +13,10 @@
                 Total Pages :- {{book.totalPages}}
             </p>
             <p>
-                Price :- {{book.price.currency + ' ' + book.price.value}}
+                Price :- {{book?.price?.currency + ' ' + book?.price?.value}}
+            </p>
+            <p>
+                Is Book Published :- {{book.isPublished}}  Date :- {{book.publishedDate}}
             </p>
         </mat-card-content>
         <mat-card-actions>

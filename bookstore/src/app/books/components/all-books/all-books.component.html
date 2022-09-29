@@ -1,8 +1,9 @@
 
-<h3>Counter Service - {{_counterService.counter}}</h3>
+<!-- <h3>Counter Service - {{_counterService.counter}}</h3>
 
 <button (click)="increment()">+</button>
-<button (click)="decrement()">-</button>
+<button (click)="decrement()">-</button> -->
 
-<a routerLink="/books/recent-books">Click here to see recent books</a>
+<button mat-raised-button color="primary" routerLink="/books/new">Add New Book</button>
+<button mat-raised-button color="primary" routerLink="/books/recent-books">Click here to see recent books</button>
 <app-book-card [allbooklist]="books"></app-book-card>
