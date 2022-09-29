@@ -1,48 +1,62 @@
 <p>Add New Books</p>
 
-<form #myform="ngForm" (ngSubmit)="savedata(myform.value)" class="form-class">
+<!-- 
+{{myform.valid}}
+{{myform.invalid}} -->
+
+{{title.errors | json}}
+<form #myform="ngForm" (ngSubmit)="savedata()" class="form-class">
     
     <mat-form-field appearance="legacy">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Title" name="title" ngModel>
+        <input matInput placeholder="Title" name="title" [(ngModel)] = "bookModel.title" required  minlength="10"
+        #title="ngModel">
+        <!-- <mat-hint [hidden]="title.valid">Please enter the book title</mat-hint> -->
+        <mat-hint *ngIf="!title.valid && title.touched">
+            <span *ngIf="title.errors?.required">Please enter the book title</span>
+            <span *ngIf="title.errors?.minlength">Min length is 10</span>
+        </mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Author</mat-label>
-        <input matInput placeholder="Author" name="author" ngModel>
+        <input matInput placeholder="Author" name="author" [(ngModel)] = "bookModel.author" required maxlength="10" 
+        #author="ngModel">
+        <mat-hint [hidden]="author.valid">Please enter the Author Name</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Pages</mat-label>
-        <input matInput placeholder="Pages" name="pages" type="number" ngModel>
+        <input matInput placeholder="Pages" name="pages" type="number" [(ngModel)] = "bookModel.totalPages" required minlength="10"
+        maxlength="1000" #pages="ngModel">
+        <mat-hint [hidden]="pages.valid">Please enter the Page size</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Price</mat-label>
         <!-- <input matInput placeholder="Price" name="price" type="number" ngModel> -->
-        <mat-select name="price" type="number" ngModel>
-            <mat-option value="100">100</mat-option>
-            <mat-option value="200">200</mat-option>
-            <mat-option value="300">300</mat-option>
-            <mat-option value="400">400</mat-option>
+        <mat-select name="price" type="number" [(ngModel)] = "bookModel.price.value">
+            <mat-option *ngFor="let price of prices" [value]="price.value">
+                {{price.viewValue}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" name="publishDate" ngModel>
-        <mat-hint>MM/DD/YYYY</mat-hint>
+        <input matInput [matDatepicker]="picker" name="publishDate" [(ngModel)] = "bookModel.publishedDate">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-    <mat-slide-toggle name="isPublished" ngModel>Is Published?</mat-slide-toggle>
+    <mat-slide-toggle name="isPublished" [(ngModel)] = "bookModel.isPublished">Is Published?</mat-slide-toggle>
     <br/>
     <!-- <input type="text" name="title" placeholder="Title" ngModel> <br /><br />
     <input type="text" name="author" placeholder="Author" ngModel> <br /><br />
     <input type="text" name="pages" placeholder="Pages" ngModel> <br /><br />
     <input type="text" name="price" placeholder="Price" ngModel> <br /><br /> -->
-    <button type="submit" mat-raised-button color="primary" style="width: 100px;">Save</button>
+    <button type="submit" mat-raised-button color="primary" style="width: 100px;" [disabled]="myform.invalid">Save</button>
 </form>
 
 

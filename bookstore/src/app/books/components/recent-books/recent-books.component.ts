@@ -17,19 +17,6 @@ export class RecentBooksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.books = this.bookService.getAllBooks();
-    const newbooks = this.bookService.getAllRecentBooks();
-    //debugger;
-    newbooks.forEach((v, i, a) => {
-      let obj = new BookModel();
-      obj.id = v.id
-      obj.title = v.title
-      obj.price = v.price
-      obj.author = v.author
-      obj.totalPages = v.totalPages
-
-      this.books.push(obj);
-    })
-
+    this.books = this.bookService.getAllRecentBooks();
   }
 }

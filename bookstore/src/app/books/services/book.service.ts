@@ -11,7 +11,7 @@ export class BookService {
 
   constructor() { }
 
-  private books: any[] = [
+  private books: BookModel[] = [
     {
       id: 1,
       title: 'c#',

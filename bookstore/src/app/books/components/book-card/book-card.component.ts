@@ -16,7 +16,7 @@ export class BookCardComponent implements OnInit {
   @Input('allbooklist') // <-- this is alias name and it is optional  
   public set value(v : BookModel[]) {
     v.map( x => x.title = 'Title : ' + x.title)    
-    debugger
+   // debugger
     this._bookList = v;
   }
 
